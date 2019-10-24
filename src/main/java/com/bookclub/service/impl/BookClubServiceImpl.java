@@ -15,20 +15,36 @@ public class BookClubServiceImpl implements BookClubService {
 	@Override
 	public List<Book> findAll() {
 		List retval = new ArrayList();
-		retval.add(new Book("Title", "Author", "ISBN", Status.available));
-		retval.add(new Book("Title one", "Aydin", "ISBN", Status.available));
-		retval.add(new Book("Title two", "Alex", "ISBN", Status.available));
-		retval.add(new Book("Title three", "James", "ISBN", Status.available));
-		retval.add(new Book("Title four", "Mark", "ISBN", Status.available));
+		retval = getListAvailable();
+		retval.addAll(getListRented());
 		return retval;
 	}
 	
 	@Override
 	public List<Book> findAvailable(String status){
 		List retval = new ArrayList();
-		
-		return null;
+		if(status.equals("available")) {
+			retval=getListAvailable();
+		}else if(status.equals("rented")) {
+			retval=getListRented();
+		}	
+			
+		return retval;
 	}
 
+	private List<Book> getListAvailable(){
+		List retval = new ArrayList();
+		retval.add(new Book("Title three", "James", "ISBN", Status.available));
+		retval.add(new Book("Title four", "Mark", "ISBN", Status.available));
+		return retval;
+	}
+	
+	private List<Book> getListRented(){
+		List retval = new ArrayList();
+		retval.add(new Book("Title", "Author", "ISBN", Status.rented));
+		retval.add(new Book("Title one", "Aydin", "ISBN", Status.rented));
+		retval.add(new Book("Title two", "Alex", "ISBN", Status.rented));
+		return retval;
+	}
 	
 }
