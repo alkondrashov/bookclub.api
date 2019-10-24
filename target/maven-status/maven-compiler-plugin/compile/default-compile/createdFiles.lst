@@ -1,0 +1,5 @@
+com/bookclub/controller/BookController.class
+com/bookclub/service/BookClubService.class
+com/bookclub/domain/Book.class
+com/bookclub/BookClubApp.class
+com/bookclub/service/impl/BookClubServiceImpl.class
