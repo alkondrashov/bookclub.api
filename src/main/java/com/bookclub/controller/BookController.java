@@ -16,7 +16,7 @@ public class BookController {
 	@Autowired
 	BookClubService bookClubService;
 
-	@RequestMapping(value = "/all")
+	@RequestMapping(value = "/all/")
 	public DeferredResult<List<Book>> getAll() {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
@@ -26,7 +26,7 @@ public class BookController {
 		return output;
 	}
 
-	@RequestMapping(value = "/available")
+	@RequestMapping(value = "/available/")
 	public DeferredResult<List<Book>> getAvailable() {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
@@ -36,7 +36,7 @@ public class BookController {
 		return output;
 	}
 
-	@RequestMapping(value = "/rented")
+	@RequestMapping(value = "/rented/")
 	public DeferredResult<List<Book>> getRented() {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
