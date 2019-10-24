@@ -16,12 +16,32 @@ public class BookController {
 	@Autowired
 	BookClubService bookClubService;
 
-	@RequestMapping(value = "/all")
-	public DeferredResult<List<Book>> getClient() {
+	@RequestMapping(value = "/all/")
+	public DeferredResult<List<Book>> getAll() {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
 
 		output.setResult(bookClubService.findAll());
+
+		return output;
+	}
+
+	@RequestMapping(value = "/available/")
+	public DeferredResult<List<Book>> getAvailable() {
+
+		DeferredResult<List<Book>> output = new DeferredResult<>();
+
+		output.setResult(bookClubService.findAvailable("available"));
+
+		return output;
+	}
+
+	@RequestMapping(value = "/rented/")
+	public DeferredResult<List<Book>> getRented() {
+
+		DeferredResult<List<Book>> output = new DeferredResult<>();
+
+		output.setResult(bookClubService.findAvailable("rented"));
 
 		return output;
 	}
