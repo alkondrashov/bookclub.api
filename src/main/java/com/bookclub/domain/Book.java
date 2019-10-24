@@ -1,7 +1,5 @@
 package com.bookclub.domain;
 
-import org.springframework.stereotype.Component;
-
 public class Book {
 
 	private String title;
