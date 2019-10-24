@@ -22,5 +22,13 @@ public class BookClubServiceImpl implements BookClubService {
 		retval.add(new Book("Title four", "Mark", "ISBN", Status.available));
 		return retval;
 	}
+	
+	@Override
+	public List<Book> findAvailable(String status){
+		List retval = new ArrayList();
+		
+		return null;
+	}
 
+	
 }

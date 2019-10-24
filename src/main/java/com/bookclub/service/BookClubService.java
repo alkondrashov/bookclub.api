@@ -7,5 +7,6 @@ import java.util.Optional;
 public interface BookClubService {
 
 	public List<Book> findAll();
+	public List<Book> findAvailable(String status);
 
 }
