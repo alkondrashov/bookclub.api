@@ -7,5 +7,6 @@ public interface BookClubService {
 
 	public List<Book> findAll();
 	public List<Book> findByStaus(String status);
+	public boolean addNewBook(String title, String author, String isbn);
 
 }

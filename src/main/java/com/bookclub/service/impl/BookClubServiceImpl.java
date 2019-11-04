@@ -47,4 +47,16 @@ public class BookClubServiceImpl implements BookClubService {
 		return retval;
 	}
 	
+	@Override
+	public boolean addNewBook(String title, String author, String isbn) {
+		Book book = createBook(title, author, isbn);
+		List retval = new ArrayList();
+		return retval.add(book);
+	}
+	
+	
+	private Book createBook(String title, String author, String isbn) {
+		return new Book(title,author,isbn, Status.available);
+	}
+	
 }
