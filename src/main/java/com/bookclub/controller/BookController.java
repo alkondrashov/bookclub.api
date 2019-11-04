@@ -31,7 +31,7 @@ public class BookController {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
 
-		output.setResult(bookClubService.findAvailable("available"));
+		output.setResult(bookClubService.findByStaus("available"));
 
 		return output;
 	}
@@ -41,7 +41,7 @@ public class BookController {
 
 		DeferredResult<List<Book>> output = new DeferredResult<>();
 
-		output.setResult(bookClubService.findAvailable("rented"));
+		output.setResult(bookClubService.findByStaus("rented"));
 
 		return output;
 	}

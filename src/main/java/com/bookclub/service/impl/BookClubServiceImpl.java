@@ -21,7 +21,7 @@ public class BookClubServiceImpl implements BookClubService {
 	}
 	
 	@Override
-	public List<Book> findAvailable(String status){
+	public List<Book> findByStaus(String status){
 		List retval = new ArrayList();
 		if(status.equals("available")) {
 			retval=getListAvailable();
