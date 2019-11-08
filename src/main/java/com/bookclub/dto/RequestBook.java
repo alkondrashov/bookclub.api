@@ -5,11 +5,13 @@ public class RequestBook {
 	String author;
 	String isbn;
 	String title;
+	String id;
 	
-	RequestBook(String author, String isbn, String title) {
+	RequestBook(String author, String isbn, String title, String id) {
 		this.author = author;
 		this.isbn = isbn;
 		this.title = title;
+		this.id = id;
 	}
 	
 	public String getTitle() {
@@ -24,5 +26,7 @@ public class RequestBook {
 		return isbn;
 	}
 
-
+	public String getId() {
+		return id;
+	}
 }

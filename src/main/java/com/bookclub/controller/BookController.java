@@ -54,6 +54,7 @@ public class BookController {
 		String title = book.getTitle();
 		String isbn = book.getISBN();
 		String author = book.getAuthor();
+		String id = book.getId();
 		
 		DeferredResult<Boolean> output = new DeferredResult<>();
 		
