@@ -2,15 +2,19 @@ package com.bookclub.service.impl;
 
 import com.bookclub.domain.Book;
 import com.bookclub.domain.Status;
+import com.bookclub.repository.BookRepository;
 import com.bookclub.service.BookClubService;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BookClubServiceImpl implements BookClubService {
 
+	@Autowired
+	public BookRepository bookRepository;
 
 	@Override
 	public List<Book> findAll() {
@@ -50,8 +54,8 @@ public class BookClubServiceImpl implements BookClubService {
 	@Override
 	public boolean addNewBook(String title, String author, String isbn, String id) {
 		Book book = createBook(title, author, isbn, id);
-		List retval = new ArrayList();
-		return retval.add(book);
+		bookRepository.addNewBook(book);
+		return true;
 	}
 	
 	
