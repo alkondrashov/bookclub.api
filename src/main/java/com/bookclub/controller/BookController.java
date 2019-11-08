@@ -58,9 +58,8 @@ public class BookController {
 		
 		DeferredResult<Boolean> output = new DeferredResult<>();
 		
-		output.setResult(bookClubService.addNewBook(title, author, isbn));
+		output.setResult(bookClubService.addNewBook(title, author, isbn, id));
 		
 		return output;
 	}
-
 }

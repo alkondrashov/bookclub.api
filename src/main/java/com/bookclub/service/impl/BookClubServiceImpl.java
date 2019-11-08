@@ -34,29 +34,29 @@ public class BookClubServiceImpl implements BookClubService {
 
 	private List<Book> getListAvailable(){
 		List retval = new ArrayList();
-		retval.add(new Book("Title three", "James", "ISBN", Status.available));
-		retval.add(new Book("Title four", "Mark", "ISBN", Status.available));
+		retval.add(new Book("Title three", "James", "ISBN", Status.available, "0"));
+		retval.add(new Book("Title four", "Mark", "ISBN", Status.available, "1"));
 		return retval;
 	}
 	
 	private List<Book> getListRented(){
 		List retval = new ArrayList();
-		retval.add(new Book("Title", "Author", "ISBN", Status.rented));
-		retval.add(new Book("Title one", "Aydin", "ISBN", Status.rented));
-		retval.add(new Book("Title two", "Alex", "ISBN", Status.rented));
+		retval.add(new Book("Title", "Author", "ISBN", Status.rented, "0"));
+		retval.add(new Book("Title one", "Aydin", "ISBN", Status.rented, "1"));
+		retval.add(new Book("Title two", "Alex", "ISBN", Status.rented, "2"));
 		return retval;
 	}
 	
 	@Override
-	public boolean addNewBook(String title, String author, String isbn) {
-		Book book = createBook(title, author, isbn);
+	public boolean addNewBook(String title, String author, String isbn, String id) {
+		Book book = createBook(title, author, isbn, id);
 		List retval = new ArrayList();
 		return retval.add(book);
 	}
 	
 	
-	private Book createBook(String title, String author, String isbn) {
-		return new Book(title,author,isbn, Status.available);
+	private Book createBook(String title, String author, String isbn ,String id) {
+		return new Book(title,author,isbn, Status.available, id);
 	}
 	
 }
