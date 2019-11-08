@@ -6,12 +6,14 @@ public class Book {
 	private String author;
 	private String ISBN;
 	private Status status;
+	private Status id;
 
-	public Book(String title, String author, String ISBN, Status status) {
+	public Book(String title, String author, String ISBN, Status status, Status id) {
 		this.title = title;
 		this.author = author;
 		this.ISBN = ISBN;
 		this.status = status;
+		this.id = id;
 	}
 
 	public String getTitle() {
@@ -45,4 +47,12 @@ public class Book {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
+
+	public void setId(Status id) {
+		this.id = id;
+	}
+
+	public String getId(Status id) {
+		return id;
+	}	
 }
