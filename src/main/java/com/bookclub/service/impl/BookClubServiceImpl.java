@@ -62,5 +62,9 @@ public class BookClubServiceImpl implements BookClubService {
 	private Book createBook(String title, String author, String isbn ,String id) {
 		return new Book(title,author,isbn, Status.available, id);
 	}
+
+	private Book updateBook(String title, String author, String isbn ,String id) {
+		return new Book(title,author,isbn, Status.available, id);
+	}
 	
 }

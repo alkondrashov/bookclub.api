@@ -62,4 +62,18 @@ public class BookController {
 		
 		return output;
 	}
+
+	@RequestMapping(value = "/updatebook/", method = RequestMethod.POST)
+	public DeferredResult<Boolean> RequestUpdateBook(@RequestBody RequestBook book) {
+		String title = book.getTitle();
+		String isbn = book.getISBN();
+		String author = book.getAuthor();
+		String id = book.getId();
+		
+		DeferredResult<Boolean> output = new DeferredResult<>();
+		
+		output.setResult(bookClubService.updateBook(title, author, isbn, id));
+		
+		return output;
+	}
 }
