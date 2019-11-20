@@ -34,5 +34,15 @@ public class BookRepsitoryImpl implements BookRepository {
 
 		}
 	}
+
+	@Override
+	public void updateBook(Book book){
+
+	}
+
+	@Override
+	public void deleteBook(int id){
+		System.out.println("Book:" + id + "has been deleted");
+	}
 	
 }

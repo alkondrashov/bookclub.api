@@ -1,17 +1,22 @@
 package com.bookclub.dto;
 
+import com.bookclub.domain.Status;
+
 public class RequestBook {
 	
 	String author;
 	String isbn;
 	String title;
-	String id;
+	int id;
+	Status status;
 	
-	RequestBook(String author, String isbn, String title, String id) {
+	RequestBook(String author, String isbn, String title, int id) {
 		this.author = author;
 		this.isbn = isbn;
 		this.title = title;
 		this.id = id;
+		this.status = Status.available;
+		
 	}
 	
 	public String getTitle() {
@@ -26,7 +31,11 @@ public class RequestBook {
 		return isbn;
 	}
 
-	public String getId() {
+	public int getId() {
 		return id;
+	}
+
+	public Status getStatus() {
+		return status;
 	}
 }

@@ -6,6 +6,7 @@ import com.bookclub.repository.BookRepository;
 import com.bookclub.service.BookClubService;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,33 +39,54 @@ public class BookClubServiceImpl implements BookClubService {
 
 	private List<Book> getListAvailable(){
 		List retval = new ArrayList();
-		retval.add(new Book("Title three", "James", "ISBN", Status.available, "0"));
-		retval.add(new Book("Title four", "Mark", "ISBN", Status.available, "1"));
+		retval.add(new Book(0, "Title three", "James", "ISBN", Status.available));
+		retval.add(new Book(1, "Title four", "Mark", "ISBN", Status.available));
 		return retval;
 	}
 	
 	private List<Book> getListRented(){
 		List retval = new ArrayList();
-		retval.add(new Book("Title", "Author", "ISBN", Status.rented, "0"));
-		retval.add(new Book("Title one", "Aydin", "ISBN", Status.rented, "1"));
-		retval.add(new Book("Title two", "Alex", "ISBN", Status.rented, "2"));
+		retval.add(new Book(0, "Title", "Author", "ISBN", Status.rented));
+		retval.add(new Book(1, "Title one", "Aydin", "ISBN", Status.rented));
+		retval.add(new Book(2, "Title two", "Alex", "ISBN", Status.rented));
 		return retval;
 	}
 	
 	@Override
-	public boolean addNewBook(String title, String author, String isbn, String id) {
-		Book book = createBook(title, author, isbn, id);
+	public boolean addNewBook(int id, String title, String author, String isbn) {
+		Book book = createBook(id, title, author, isbn);
 		bookRepository.addNewBook(book);
 		return true;
 	}
 	
 	
-	private Book createBook(String title, String author, String isbn ,String id) {
-		return new Book(title,author,isbn, Status.available, id);
+	private Book createBook(int id, String title, String author, String isbn) {
+		return new Book(id, title,author,isbn, Status.available);
 	}
 
-	private Book updateBook(String title, String author, String isbn ,String id) {
-		return new Book(title,author,isbn, Status.available, id);
+	@Override
+	public boolean updateBook(int id, String title, String author, String isbn) {
+		Book book = createBook(id, title, author, isbn);
+		
+		book.setTitle(title);
+		book.setAuthor(author);
+		book.setISBN(isbn);
+		book.setId(id);
+		
+		book.setStatus(Status.rented);
+		
+		bookRepository.updateBook(book);
+		
+		return true;
 	}
+
+	@Override
+	public boolean deleteBook(int id){
+		bookRepository.deleteBook(id);
+		List<Book> books = getListAvailable().stream().filter(it -> it.getId() == id).collect(Collectors.toList());
+		return (books.size() == 0);
+	}
+
+	
 	
 }

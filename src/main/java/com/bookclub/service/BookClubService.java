@@ -7,6 +7,7 @@ public interface BookClubService {
 
 	public List<Book> findAll();
 	public List<Book> findByStaus(String status);
-	public boolean addNewBook(String title, String author, String isbn, String id);
-
+	public boolean addNewBook(int id, String title, String author, String isbn);
+	public boolean updateBook(int id, String title, String author, String isbn);
+	public boolean deleteBook(int id);
 }
