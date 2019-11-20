@@ -1,7 +1,0 @@
-com\bookclub\dto\RequestBook.class
-com\bookclub\service\impl\BookClubServiceImpl.class
-com\bookclub\controller\BookController.class
-com\bookclub\domain\Book.class
-com\bookclub\domain\Status.class
-com\bookclub\BookClubApp.class
-com\bookclub\service\BookClubService.class
