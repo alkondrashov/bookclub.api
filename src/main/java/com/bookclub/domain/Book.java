@@ -6,9 +6,9 @@ public class Book {
 	private String author;
 	private String ISBN;
 	private Status status;
-	private String id;
+	private int id;
 
-	public Book(String title, String author, String ISBN, Status status, String id) {
+	public Book(int id, String title, String author, String ISBN, Status status) {
 		this.title = title;
 		this.author = author;
 		this.ISBN = ISBN;
@@ -48,11 +48,11 @@ public class Book {
 		this.status = status;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getId(String id) {
-		return id;
+	public int getId() {
+		return this.id;
 	}	
 }
